@@ -1,7 +1,7 @@
 <template>
-    <div class="banner">
-        <!-- <img :src="require(`@/assets/image/king.jpg`)" alt="大圖"> -->
-    </div>
+    <footer>
+        <div class="foot"></div>
+    </footer>
 </template>
 <script>
 export default {
@@ -12,14 +12,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/assets/sass/main.scss";
-.banner{
+footer{
     width: 100%;
     height: 100vh;
     background-color: $body_color;
-    img{
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
+    .foot{
+        
     }
 }
 </style>

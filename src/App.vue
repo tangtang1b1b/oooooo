@@ -25,7 +25,7 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  background-color: #777;
+  background-color: transparent;
   a {
     font-weight: bold;
     color: #2c3e50;
