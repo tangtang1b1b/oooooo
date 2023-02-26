@@ -7,6 +7,8 @@
 </template>
 
 <style lang="scss">
+@import "@/assets/css/reset.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,8 +18,14 @@
 }
 
 nav {
+  position: absolute;
+  box-sizing: border-box;
   padding: 30px;
-
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: #777;
   a {
     font-weight: bold;
     color: #2c3e50;
