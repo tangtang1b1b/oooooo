@@ -2,7 +2,6 @@
   <div class="home">
     <Banner/>
     <About/>
-    <Footer/>
   </div>
 </template>
 
@@ -10,14 +9,12 @@
 // @ is an alias to /src
 import Banner from '@/components/Banner.vue'
 import About from '@/components/About.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'HomeView',
   components: {
     Banner,
     About,
-    Footer,
   }
 }
 </script>
