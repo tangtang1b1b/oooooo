@@ -2,15 +2,15 @@
     <div class="banner">
         <div class="nextcir"></div>
         <div class="word">
-            <div class="title">
+            <div class="title tick">
                 <h2>Keep reading,<br> and go with the flow</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rerum eos, laudantium corporis iste ut natus eum inventore, totam explicabo necessitatibus esse voluptates rem. Ipsum labore aspernatur voluptates id necessitatibus?</p>
-                <button class="view">View more</button>
+                <button class="view tick">View more</button>
             </div>
             <div class="read"></div>
         </div>
-        <div class="item">
-            <div id="next" class="next" @click="right" @mouseenter="mouse" @mouseleave="mousel">next</div>
+        <div class="item tick">
+            <div id="next" class="next tick" @click="right" @mouseenter="mouse" @mouseleave="mousel">next</div>
             <div class="thingbox">
                 <div v-for="i in 5" :key="i" class="thing">
                     <div class="imag">
@@ -36,8 +36,7 @@ export default {
         const right=()=>{
             const thingbox = document.querySelector(".thingbox");
             if(i<4){
-                thingbox.style = "transition: 0.5s";
-                thingbox.style = `transform: translateX(-${20*i}%)`;
+                thingbox.style = `transition: transform 0.5s 0.1s ease-in-out;transform: translateX(-${20*i}%)`;
                 i++;
                 if(check==true){
                     growred();
@@ -50,7 +49,7 @@ export default {
                         thingbox.style = `transform: translateX(-${20*i}%)`;
                         thingbox.style = "transition: 0s";
                         i=1;
-                    },500)
+                    },700)
                 }
             }
         }
@@ -58,7 +57,12 @@ export default {
             check=!check;
             const nextcir = document.querySelector(".nextcir");
             const banner = document.querySelector(".banner");
-            nextcir.style = "transition: 1s;background-color: #edc7af;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
+            const tick = document.querySelectorAll(".tick");
+            tick.forEach(v=>{
+                v.style="transition: 1s";
+                v.classList.remove("white")
+            });
+            nextcir.style = "transition: 1s ease-in-out;background-color: #edc7af;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
             setTimeout(()=>{
                 banner.style = "background-color: #edc7af";
                 nextcir.style = "background-color: #edc7af;transition: 0s;width: 0px;height: 0px;transform: translate(-200%,-200%) scale(0)";
@@ -68,7 +72,12 @@ export default {
             check=!check;
             const nextcir = document.querySelector(".nextcir");
             const banner = document.querySelector(".banner");
-            nextcir.style = "transition: 1s;background-color: #a82224;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
+            const tick = document.querySelectorAll(".tick");
+            tick.forEach(v=>{
+                v.style="transition: 1s";
+                v.classList.add("white")
+            });
+            nextcir.style = "transition: 1s ease-in-out;background-color: #a82224;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
             setTimeout(()=>{
                 banner.style = "background-color: #a82224";
                 nextcir.style = "background-color: #a82224;transition: 0s;width: 0px;height: 0px;transform: translate(-200%,-200%) scale(0)";
@@ -77,17 +86,17 @@ export default {
         const mouse=()=>{
             const next = document.querySelector("#next");
             if(check==true){
-                next.style="background-color: #a82224"
+                next.style="background-color: #a82224;color: #fff;";
             }else{
-                next.style="background-color: #edc7af"
+                next.style="background-color: #edc7af;color: #333;border: solid 1px #333";
             }
         }
         const mousel=()=>{
             const next = document.querySelector("#next");
             if(check==true){
-                next.style="background-color: #edc7af"
+                next.style="background-color: #edc7af";
             }else{
-                next.style="background-color: #a82224"
+                next.style="background-color: #a82224";
             }
         }
         return{
@@ -128,7 +137,8 @@ export default {
         justify-content: center;
         width: 1px;
         height: 1px;
-        transition: 1s;
+        transition: 1s ease-in-out;
+        // box-shadow: 0px 0px 15px rgba(#333,0.2);
     }
     .word{
         width: 50%;
@@ -139,6 +149,12 @@ export default {
         .read{
             width: 100%;
             height: 30%;
+        }
+        .title.tick.white{
+            color: #fff;
+        }
+        .title.tick{
+            color:#333;
         }
         .title{
             display: flex;
@@ -159,19 +175,30 @@ export default {
                 line-height: 20px;
                 text-align: left;
             }
+            .view.tick.white{
+                color: #fff;
+                box-shadow: 0px 0px 0px #fff;
+                border: solid 1px #fff;
+            }
+            .view.tick{
+                color: #333;
+                box-shadow: 0px 0px 0px #333;
+                border: solid 1px #333;
+            }
             .view{
                 width: fit-content;
                 font-size: 28px;
                 background-color: transparent;
-                border: solid 1px #333;
+                // border: solid 1px #333;
                 border-radius: 30px;
                 margin-left: 20px;
                 padding: 5px 20px;
                 box-sizing: border-box;
                 position: relative;
                 z-index: 1;
-                box-shadow: 0px 0px 0px #333;
+                // box-shadow: 0px 0px 0px #333;
                 transition: 0.3s;
+                // color: #333;
                 &:hover{
                     transform: translate(-2px,-1px);
                     cursor: pointer;
@@ -184,6 +211,12 @@ export default {
             }
         }
     }
+    .item.tick.white{
+        color: #fff;
+    }
+    .item.tick{
+        color: #333;
+    }
     .item{
         box-sizing: border-box;
         padding-top: 50px;
@@ -191,6 +224,14 @@ export default {
         height: 100%;
         overflow: hidden;
         position: relative;
+        .next.tick.white{
+            border: solid 1px #fff;
+            color: #fff;
+        }
+        .next.tick{
+            border: solid 1px #333;
+            color: #333;
+        }
         .next{
             z-index: 1;
             position: absolute;
@@ -199,7 +240,6 @@ export default {
             width: 50px;
             height: 50px;
             border-radius: 100%;
-            border: solid 1px #333;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -209,11 +249,9 @@ export default {
                 color: #fff;
                 transition: 0.3s;
             }
-            &:hover i{
-                color: #fff;
-            }
             &:hover{
                 cursor: pointer;
+                color: #fff;
                 background-color: $red_color;
                 border: solid 1px $red_color; 
             }
@@ -222,7 +260,7 @@ export default {
             display: flex;
             width: 350%;
             height: 100%;
-            transition: 0.5s;
+            // transition: 0.5s;
             .thing{
                 box-sizing: border-box;
                 padding: 20px;
