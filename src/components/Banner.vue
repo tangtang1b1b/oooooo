@@ -1,5 +1,6 @@
 <template>
     <div class="banner">
+        <div class="nextcir"></div>
         <div class="word">
             <div class="title">
                 <h2>Keep reading,<br> and go with the flow</h2>
@@ -9,7 +10,7 @@
             <div class="read"></div>
         </div>
         <div class="item">
-            <div id="next" class="next" @click="right"><i class="fa-solid fa-arrow-right"></i></div>
+            <div id="next" class="next" @click="right" @mouseenter="mouse" @mouseleave="mousel">next</div>
             <div class="thingbox">
                 <div v-for="i in 5" :key="i" class="thing">
                     <div class="imag">
@@ -28,16 +29,21 @@
     </div>
 </template>
 <script>
-import {ref} from "vue";
 export default {
     setup() {
         let i = 1;
+        let check = true;
         const right=()=>{
             const thingbox = document.querySelector(".thingbox");
             if(i<4){
                 thingbox.style = "transition: 0.5s";
                 thingbox.style = `transform: translateX(-${20*i}%)`;
                 i++;
+                if(check==true){
+                    growred();
+                }else{
+                    growyellow();
+                }
                 if(i==4){
                     setTimeout(()=>{
                         i=0;
@@ -47,10 +53,49 @@ export default {
                     },500)
                 }
             }
-            
+        }
+        const growyellow=()=>{
+            check=!check;
+            const nextcir = document.querySelector(".nextcir");
+            const banner = document.querySelector(".banner");
+            nextcir.style = "transition: 1s;background-color: #edc7af;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
+            setTimeout(()=>{
+                banner.style = "background-color: #edc7af";
+                nextcir.style = "background-color: #edc7af;transition: 0s;width: 0px;height: 0px;transform: translate(-200%,-200%) scale(0)";
+            },1000);
+        }
+        const growred=()=>{
+            check=!check;
+            const nextcir = document.querySelector(".nextcir");
+            const banner = document.querySelector(".banner");
+            nextcir.style = "transition: 1s;background-color: #a82224;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
+            setTimeout(()=>{
+                banner.style = "background-color: #a82224";
+                nextcir.style = "background-color: #a82224;transition: 0s;width: 0px;height: 0px;transform: translate(-200%,-200%) scale(0)";
+            },1000);
+        }
+        const mouse=()=>{
+            const next = document.querySelector("#next");
+            if(check==true){
+                next.style="background-color: #a82224"
+            }else{
+                next.style="background-color: #edc7af"
+            }
+        }
+        const mousel=()=>{
+            const next = document.querySelector("#next");
+            if(check==true){
+                next.style="background-color: #edc7af"
+            }else{
+                next.style="background-color: #a82224"
+            }
         }
         return{
             right,
+            growred,
+            growyellow,
+            mouse,
+            mousel,
         }
     },
 }
@@ -70,11 +115,27 @@ export default {
     color: #333;
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
+    .nextcir{
+        z-index: 0;
+        position: absolute;
+        left: 84%;
+        top: 13%; 
+        transform-origin: 50% 50%;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1px;
+        height: 1px;
+        transition: 1s;
+    }
     .word{
         width: 50%;
         height: 100%;
         padding: 0px 20px;
         box-sizing: border-box;
+        z-index: 1;
         .read{
             width: 100%;
             height: 30%;
@@ -101,7 +162,7 @@ export default {
             .view{
                 width: fit-content;
                 font-size: 28px;
-                background-color: $body_color;
+                background-color: transparent;
                 border: solid 1px #333;
                 border-radius: 30px;
                 margin-left: 20px;
@@ -145,7 +206,7 @@ export default {
             transition: 0.3s;
             i{
                 font-size: 24px;
-                color: #333;
+                color: #fff;
                 transition: 0.3s;
             }
             &:hover i{
@@ -154,6 +215,7 @@ export default {
             &:hover{
                 cursor: pointer;
                 background-color: $red_color;
+                border: solid 1px $red_color; 
             }
         }
         .thingbox{
