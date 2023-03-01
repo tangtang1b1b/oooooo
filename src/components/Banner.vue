@@ -59,7 +59,7 @@ export default {
             const banner = document.querySelector(".banner");
             const tick = document.querySelectorAll(".tick");
             tick.forEach(v=>{
-                v.style="transition: 1s";
+                v.style="transition: border 1s,color 1s,transform 0.3s ,box-shadow 0.3s";
                 v.classList.remove("white")
             });
             nextcir.style = "transition: 1s ease-in-out;background-color: #edc7af;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
@@ -74,7 +74,7 @@ export default {
             const banner = document.querySelector(".banner");
             const tick = document.querySelectorAll(".tick");
             tick.forEach(v=>{
-                v.style="transition: 1s";
+                v.style="transition: border 1s,color 1s, transform 0.3s ,box-shadow 0.3s";
                 v.classList.add("white")
             });
             nextcir.style = "transition: 1s ease-in-out;background-color: #a82224;width: 10px;height: 10px;transform: translate(-200%,-200%) scale(500)";
@@ -179,6 +179,15 @@ export default {
                 color: #fff;
                 box-shadow: 0px 0px 0px #fff;
                 border: solid 1px #fff;
+                &:hover{
+                    transform: translate(-2px,-1px);
+                    cursor: pointer;
+                    box-shadow: 3px 2px 0px #fff;
+                }
+                &:active{
+                    transform: translate(0px,0px);
+                    box-shadow: 0px 0px 0px #fff;
+                }
             }
             .view.tick{
                 color: #333;
@@ -189,24 +198,21 @@ export default {
                 width: fit-content;
                 font-size: 28px;
                 background-color: transparent;
-                // border: solid 1px #333;
                 border-radius: 30px;
                 margin-left: 20px;
                 padding: 5px 20px;
                 box-sizing: border-box;
                 position: relative;
                 z-index: 1;
-                // box-shadow: 0px 0px 0px #333;
                 transition: 0.3s;
-                // color: #333;
                 &:hover{
                     transform: translate(-2px,-1px);
                     cursor: pointer;
                     box-shadow: 3px 2px 0px #333;
                 }
                 &:active{
-                    transform: translate(-1px,0px);
-                    box-shadow: 2px 1px 0px #333;
+                    transform: translate(0px,0px);
+                    box-shadow: 0px 0px 0px #333;
                 }
             }
         }
