@@ -5,22 +5,22 @@
             <div class="title tick">
                 <h2>Keep reading,<br> and go with the flow</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rerum eos, laudantium corporis iste ut natus eum inventore, totam explicabo necessitatibus esse voluptates rem. Ipsum labore aspernatur voluptates id necessitatibus?</p>
-                <button class="view tick">View more</button>
+                <router-link to="/more" class="view tick">View more</router-link>
             </div>
             <div class="read"></div>
         </div>
         <div class="item tick">
             <div id="next" class="next tick" @click="right" @mouseenter="mouse" @mouseleave="mousel">next</div>
             <div class="thingbox">
-                <div v-for="i in 5" :key="i" class="thing">
+                <div v-for="i in data" :key="i" class="thing">
                     <div class="imag">
-                        <img :src="require(`@/assets/image/king.jpg`)" alt="">
+                        <a :href="i['url']"><img :src="require(`@/assets/image/${i['img']}.png`)" alt=""></a>
                     </div>
-                    <p>Project 1</p>
+                    <p>{{i['name']}}</p>
                     <div class="gone">
-                        <p>chayuan</p>
+                        <p>{{i['descr']}}</p>
                         <div class="plus">
-                            <i class="fa-solid fa-barcode"></i>
+                            <a class="tick" :href="i['url']"><i class="fa-solid fa-barcode"></i></a>
                         </div>
                     </div>
                 </div>
@@ -31,22 +31,29 @@
 <script>
 export default {
     setup() {
+        const data = [{url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
+                      {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'},
+                      {url:'https://tangtang1b1b.github.io/Global-Digital-test/',name:'寰宇數位',descr:'寰宇數位測驗',img:'3'},
+                      {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList實作',img:'4'},
+                      {url:'https://tangtang1b1b.github.io/Sliding-puzzle-game/',name:'九宮格拼圖',descr:'拼圖小遊戲實作',img:'5'},
+                      {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
+                      {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'}];
         let i = 1;
         let check = true;
         const right=()=>{
             const thingbox = document.querySelector(".thingbox");
-            if(i<4){
-                thingbox.style = `transition: transform 0.5s 0.1s ease-in-out;transform: translateX(-${20*i}%)`;
+            if(i<data.length-1){
+                thingbox.style = `transition: transform 0.5s 0.1s ease-in-out;transform: translateX(-${(100/7)*i}%)`;
                 i++;
                 if(check==true){
                     growred();
                 }else{
                     growyellow();
                 }
-                if(i==4){
+                if(i==data.length-1){
                     setTimeout(()=>{
                         i=0;
-                        thingbox.style = `transform: translateX(-${20*i}%)`;
+                        thingbox.style = `transform: translateX(-${(100/7)*i}%)`;
                         thingbox.style = "transition: 0s";
                         i=1;
                     },700)
@@ -105,6 +112,7 @@ export default {
             growyellow,
             mouse,
             mousel,
+            data,
         }
     },
 }
@@ -114,7 +122,7 @@ export default {
 
 *{
     // outline: solid 1px;
-    font-family: 新細明體;
+    font-family: 微軟正黑體;
 }
 .banner{
     display: flex;
@@ -195,6 +203,7 @@ export default {
                 border: solid 1px #333;
             }
             .view{
+                text-decoration: none;
                 width: fit-content;
                 font-size: 28px;
                 background-color: transparent;
@@ -264,7 +273,7 @@ export default {
         }
         .thingbox{
             display: flex;
-            width: 350%;
+            width: 490%;
             height: 100%;
             // transition: 0.5s;
             .thing{
@@ -272,17 +281,27 @@ export default {
                 padding: 20px;
                 width: 70%;
                 height: 100%;
+                padding: 20px 40px;
+                box-sizing: border-box;
                 .imag{
                     height: 85%;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    box-shadow: 0px 0px 8px rgba(#333,0.5);
                     img{
-                        padding: 20px;
                         box-sizing: border-box;
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        transition: 1s;
+                        &:hover{
+                            transform: scale(1.03);
+                        }
                     }
                 }
                 p{
+                    font-weight: bold;
+                    font-size: 26px;
                     height: 7.5%;
                     display: flex;
                     align-items: center;
@@ -299,11 +318,22 @@ export default {
                         justify-content: flex-start;
                         padding: 10px;
                         box-sizing: border-box;
+                        font-size: 16px;
                     }
                     .plus{
                         width: 20%;
-                        i{
-                            font-size: 20px;
+                        a.tick.white{
+                            color: #fff;
+                        }
+                        a.tick{
+                            color: #333;
+                            transition: 0.3s;
+                            &:hover{
+                                color: blueviolet;
+                            }
+                            i{
+                                font-size: 20px;
+                            }
                         }
                     }
                 }
