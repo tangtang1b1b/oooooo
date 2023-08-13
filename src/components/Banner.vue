@@ -11,7 +11,7 @@
         </div>
         <div class="item tick">
             <div id="next" class="next tick" @click="right" @mouseenter="mouse" @mouseleave="mousel">next</div>
-            <div class="thingbox">
+            <div class="thingbox" :style="{width:data.length * 70 + '%'}">
                 <div v-for="i in data" :key="i" class="thing">
                     <div class="imag">
                         <a :href="i['url']"><img :src="require(`@/assets/image/${i['img']}.png`)" alt=""></a>
@@ -31,19 +31,27 @@
 <script>
 export default {
     setup() {
-        const data = [{url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
-                      {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'},
-                      {url:'https://tangtang1b1b.github.io/Global-Digital-test/',name:'寰宇數位',descr:'寰宇數位測驗',img:'3'},
-                      {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList實作',img:'4'},
-                      {url:'https://tangtang1b1b.github.io/Sliding-puzzle-game/',name:'九宮格拼圖',descr:'拼圖小遊戲實作',img:'5'},
-                      {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
-                      {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'}];
+        const data = 
+            [
+                {url:'https://czchat.onrender.com',name:'線上即時聊天室',descr:'運用Socket.io實現即時聊天',img:'6'},
+                {url:'https://tangtang1b1b.github.io/panorama/',name:'360還景功能',descr:'three.js實作還景(手機觀看)',img:'7'},
+                {url:'https://tangtang1b1b.github.io/weather-api/',name:'天氣API',descr:'串接一周天氣圖片呈現',img:'8'},
+                {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
+                {url:'https://tangtang1b1b.github.io/Sliding-puzzle-game/',name:'九宮格拼圖',descr:'拼圖小遊戲實作',img:'5'},
+                {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'},
+                {url:'https://tangtang1b1b.github.io/Global-Digital-test/',name:'寰宇數位',descr:'寰宇數位測驗',img:'3'},
+                {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList實作',img:'4'},
+                {url:'https://czchat.onrender.com',name:'線上即時聊天室',descr:'運用Socket.io實現即時聊天',img:'6'},
+                {url:'https://tangtang1b1b.github.io/panorama/',name:'360還景功能',descr:'three.js實作還景(手機觀看)',img:'7'},
+            ];
         let i = 1;
         let check = true;
         const right=()=>{
             const thingbox = document.querySelector(".thingbox");
             if(i<data.length-1){
-                thingbox.style = `transition: transform 0.5s 0.1s ease-in-out;transform: translateX(-${(100/7)*i}%)`;
+                // thingbox.style = `transition: transform 0.5s 0.1s ease-in-out;transform: translateX(-${(100/data.length)*i}%)`;
+                thingbox.style.transition = `transform 0.5s 0.1s ease-in-out`;
+                thingbox.style.transform = `translateX(-${(100/data.length)*i}%)`;
                 i++;
                 if(check==true){
                     growred();
@@ -53,8 +61,8 @@ export default {
                 if(i==data.length-1){
                     setTimeout(()=>{
                         i=0;
-                        thingbox.style = `transform: translateX(-${(100/7)*i}%)`;
-                        thingbox.style = "transition: 0s";
+                        thingbox.style.transform = `translateX(-${(100/data.length)*i}%)`;
+                        thingbox.style.transition = "0s";
                         i=1;
                     },700)
                 }
@@ -273,7 +281,7 @@ export default {
         }
         .thingbox{
             display: flex;
-            width: 490%;
+            // width: 490%;
             height: 100%;
             // transition: 0.5s;
             .thing{
