@@ -38,6 +38,7 @@ export default {
                 {url:'https://tangtang1b1b.github.io/weather-api/',name:'天氣API',descr:'串接一周天氣圖片呈現',img:'8'},
                 {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
                 {url:'https://tangtang1b1b.github.io/Sliding-puzzle-game/',name:'九宮格拼圖',descr:'拼圖小遊戲實作',img:'5'},
+                {url:'https://tangtang1b1b.github.io/Tic-Tac-Toe/',name:'井字遊戲',descr:'圈圈叉叉小遊戲',img:'9'},
                 {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動測驗',img:'2'},
                 {url:'https://tangtang1b1b.github.io/Global-Digital-test/',name:'寰宇數位',descr:'寰宇數位測驗',img:'3'},
                 {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList實作',img:'4'},
@@ -127,6 +128,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/assets/sass/main.scss";
+@mixin phone(){
+    @media screen and ( max-width: 1200px ){
+        @content
+    }
+}
 
 *{
     // outline: solid 1px;
@@ -141,6 +147,10 @@ export default {
     padding: 20px;
     box-sizing: border-box;
     position: relative;
+    @include phone{
+        height: 130vh;
+        flex-direction: column;
+    }
     .nextcir{
         z-index: 0;
         position: absolute;
@@ -162,9 +172,17 @@ export default {
         padding: 0px 20px;
         box-sizing: border-box;
         z-index: 1;
+        @include phone{
+            padding: 0px 0px;
+            height: fit-content;
+            width: 100%;
+        }
         .read{
             width: 100%;
             height: 30%;
+            @include phone{
+                display: none;
+            }
         }
         .title.tick.white{
             color: #fff;
@@ -178,11 +196,18 @@ export default {
             justify-content: center;
             width: 100%;
             height: 70%;
+            @include phone{
+                justify-content: flex-start;
+            }
             h2{
                 margin-bottom: 30px;
                 text-align: left;
                 font-size: 90px;
                 font-weight: bold;
+                @include phone{
+                    font-size: 45px;
+                    line-height: 55px;
+                }
             }
             p{
                 font-weight: bold;
@@ -247,6 +272,10 @@ export default {
         height: 100%;
         overflow: hidden;
         position: relative;
+        @include phone{
+            height: calc(130vh - 30%);
+            width: 100%;
+        }
         .next.tick.white{
             border: solid 1px #fff;
             color: #fff;
@@ -281,9 +310,7 @@ export default {
         }
         .thingbox{
             display: flex;
-            // width: 490%;
             height: 100%;
-            // transition: 0.5s;
             .thing{
                 box-sizing: border-box;
                 padding: 20px;
@@ -291,6 +318,9 @@ export default {
                 height: 100%;
                 padding: 20px 40px;
                 box-sizing: border-box;
+                @include phone{
+                    padding: 10px;
+                }
                 .imag{
                     height: 85%;
                     overflow: hidden;
@@ -319,6 +349,10 @@ export default {
                     height: 7.5%;
                     display: flex;
                     align-items: center;
+                    @include phone{
+                        width: 100%;
+                        justify-content: center;
+                    }
                     p{
                         height: 100%;
                         width: 80%;
@@ -327,9 +361,16 @@ export default {
                         padding: 10px;
                         box-sizing: border-box;
                         font-size: 16px;
+                        @include phone{
+                            width: 100%;
+                            justify-content: center;
+                        }
                     }
                     .plus{
                         width: 20%;
+                        @include phone{
+                            display: none;
+                        }
                         a.tick.white{
                             color: #fff;
                         }
