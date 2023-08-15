@@ -51,7 +51,9 @@ export default {
     display: flex;
     width: 100%;
     @include phone{
+        box-sizing: border-box;
         flex-direction: column;
+        padding: 10px 10px;
     }
     .imagebox{
         width: 100%;
@@ -75,6 +77,9 @@ export default {
         .child:nth-child(1){
             font-size: 26px;
             font-weight: bold;
+        }
+        .child:nth-child(3){
+            word-wrap: break-word;
         }
     }
 }

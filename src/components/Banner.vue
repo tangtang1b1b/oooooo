@@ -148,7 +148,7 @@ export default {
     box-sizing: border-box;
     position: relative;
     @include phone{
-        height: 130vh;
+        height: 150vh;
         flex-direction: column;
     }
     .nextcir{
@@ -174,7 +174,7 @@ export default {
         z-index: 1;
         @include phone{
             padding: 0px 0px;
-            height: fit-content;
+            height: 100%;
             width: 100%;
         }
         .read{
@@ -197,7 +197,8 @@ export default {
             width: 100%;
             height: 70%;
             @include phone{
-                justify-content: flex-start;
+                height: 100%;
+                justify-content: center;
             }
             h2{
                 margin-bottom: 30px;
@@ -288,7 +289,7 @@ export default {
             z-index: 1;
             position: absolute;
             left: 70%;
-            transform: translateX(-50%);
+            transform: translate(-50%, 0%);
             width: 50px;
             height: 50px;
             border-radius: 100%;
@@ -296,6 +297,9 @@ export default {
             align-items: center;
             justify-content: center;
             transition: 0.3s;
+            @include phone{
+                transform: translate(-50%, -90%);
+            }
             i{
                 font-size: 24px;
                 color: #fff;
