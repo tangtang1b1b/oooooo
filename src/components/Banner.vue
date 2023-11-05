@@ -49,6 +49,12 @@ export default {
         img: "6",
       },
       {
+        url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",
+        name: "vite+pinia-TodoList",
+        descr: "使用vite+pinia做一個todoList",
+        img: "10",
+      },
+      {
         url: "https://tangtang1b1b.github.io/panorama/",
         name: "360還景功能",
         descr: "three.js實作還景(手機觀看)",

@@ -20,6 +20,7 @@ export default {
     const data = 
         [
             {url:'https://czchat.onrender.com',name:'線上即時聊天室',descr:'運用Socket.io實現即時聊天',img:'6'},
+            {url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",name: "vite+pinia-TodoList",descr: "使用vite+pinia做一個todoList",img: "10"},
             {url:'https://tangtang1b1b.github.io/panorama/',name:'360還景功能',descr:'three.js實作還景(手機觀看)',img:'7'},
             {url:'https://tangtang1b1b.github.io/weather-api/',name:'天氣API',descr:'串接一周天氣圖片呈現',img:'8'},
             {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
