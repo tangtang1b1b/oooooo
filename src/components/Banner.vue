@@ -22,9 +22,9 @@
         next
       </div>
       <div class="thingbox" :style="{ width: data.length * 70 + '%' }">
-        <div v-for="i in data" :key="i" class="thing">
+        <div v-for="i in dataSelect" :key="i" class="thing">
           <div class="imag">
-            <a :href="i['url']"><img :src="require(`@/assets/image/${i['img']}.png`)" alt="" /></a>
+            <a :href="i['url']"><img :src="require(`@/assets/image/${i['img']}.png`)" :alt="data.name" /></a>
           </div>
           <p>{{ i["name"] }}</p>
           <div class="gone">
@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import { onMounted, ref } from 'vue'
 export default {
   setup() {
     const data = [
@@ -109,12 +110,14 @@ export default {
         img: "6",
       },
       {
-        url: "https://tangtang1b1b.github.io/panorama/",
-        name: "360還景功能",
-        descr: "three.js實作還景(手機觀看)",
-        img: "7",
+        url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",
+        name: "vite+pinia-TodoList",
+        descr: "使用vite+pinia做一個todoList",
+        img: "10",
       },
     ];
+    const dataSelect = window.innerWidth < 1200 ? data.slice(0, data.length - 2) : data;
+
     let i = 1;
     let check = true;
     let animateFinish = true;
@@ -205,6 +208,7 @@ export default {
       mouse,
       mousel,
       data,
+      dataSelect,
     };
   },
 };
@@ -384,7 +388,12 @@ export default {
 
     @include phone {
       height: calc(130vh - 30%);
+      overflow: scroll;
       width: 100%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .next.tick.white {
@@ -412,6 +421,7 @@ export default {
       user-select: none;
 
       @include phone {
+        display: none;
         transform: translate(-50%, -90%);
       }
 
@@ -471,6 +481,11 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding-top: 5px;
+
+          @include phone {
+            font-size: 18px;
+          }
         }
 
         .gone {
@@ -493,8 +508,7 @@ export default {
             font-size: 16px;
 
             @include phone {
-              width: 100%;
-              justify-content: center;
+              display: none;
             }
           }
 
