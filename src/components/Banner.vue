@@ -50,6 +50,12 @@ export default {
         img: "6",
       },
       {
+        url: "https://tangtang1b1b.github.io/pokemon-book/",
+        name: "vite+pinia-Pokemonbook",
+        descr: "使用vite+pinia做一個神奇寶貝圖鑑",
+        img: "11",
+      },
+      {
         url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",
         name: "vite+pinia-TodoList",
         descr: "使用vite+pinia做一個todoList",
@@ -110,10 +116,10 @@ export default {
         img: "6",
       },
       {
-        url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",
-        name: "vite+pinia-TodoList",
-        descr: "使用vite+pinia做一個todoList",
-        img: "10",
+        url: "https://tangtang1b1b.github.io/pokemon-book/",
+        name: "vite+pinia-Pokemonbook",
+        descr: "使用vite+pinia做一個神奇寶貝圖鑑",
+        img: "11",
       },
     ];
     const dataSelect = window.innerWidth < 1200 ? data.slice(0, data.length - 2) : data;
