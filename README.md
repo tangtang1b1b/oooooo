@@ -1,4 +1,4 @@
-# vue cli建製
+# Vue cli 打造一個放置作品的靜態頁面
 ---
-https://tangtang1b1b.github.io/oooooo/
+[oooooo](https://tangtang1b1b.github.io/oooooo/)
 ---
