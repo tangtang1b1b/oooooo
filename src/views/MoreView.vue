@@ -19,17 +19,18 @@ export default {
   setup(){
     const data = 
         [
-            {url:'https://czchat.onrender.com',name:'線上即時聊天室',descr:'運用Socket.io實現即時聊天',img:'6'},
-            {url: "https://tangtang1b1b.github.io/pokemon-book/",name: "vite+pinia-Pokemonbook",descr: "使用vite+pinia做一個神奇寶貝圖鑑",img: "11",},
-            {url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",name: "vite+pinia-TodoList",descr: "使用vite+pinia做一個todoList",img: "10"},
-            {url:'https://tangtang1b1b.github.io/panorama/',name:'360還景功能',descr:'three.js實作還景(手機觀看)',img:'7'},
-            {url:'https://tangtang1b1b.github.io/weather-api/',name:'天氣API',descr:'串接一周天氣圖片呈現',img:'8'},
-            {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑CHAYUAN',descr:'個人購物網站',img:'1'},
+            {url:'https://czchat.onrender.com',name:'線上即時聊天室',descr:'運用 Socket.io 實現即時聊天',img:'6'},
+            {url: "https://tangtang1b1b.github.io/vite-three-gsap---landing-page/",name: "vite + three + gsap - DeSK--",descr: "使用 vite + three + gsap 做一個 landing page",img: "12",},
+            {url: "https://tangtang1b1b.github.io/pokemon-book/",name: "vite + pinia - Pokemonbook",descr: "使用 vite + pinia 做一個神奇寶貝圖鑑",img: "11",},
+            {url: "https://tangtang1b1b.github.io/vite-pinia-Todo-List/",name: "vite + pinia - TodoList",descr: "使用 vite + pinia 做一個 todoList",img: "10"},
+            {url:'https://tangtang1b1b.github.io/panorama/',name:'360 還景功能',descr:'three.js 實作還景(手機觀看)',img:'7'},
+            {url:'https://tangtang1b1b.github.io/weather-api/',name:'天氣 API',descr:'串接一周天氣圖片呈現',img:'8'},
+            {url:'https://tangtang1b1b.github.io/chayuan/',name:'茶苑 CHAYUAN',descr:'個人購物網站',img:'1'},
             {url:'https://tangtang1b1b.github.io/Sliding-puzzle-game/',name:'九宮格拼圖',descr:'拼圖小遊戲實作',img:'5'},
             {url:'https://tangtang1b1b.github.io/Tic-Tac-Toe/',name:'井字遊戲',descr:'圈圈叉叉小遊戲',img:'9'},
             {url:'https://tangtang1b1b.github.io/DigiSalad/',name:'沙拉互動',descr:'沙拉互動切版',img:'2'},
             {url:'https://tangtang1b1b.github.io/Global-Digital-test/',name:'寰宇數位',descr:'寰宇數位切版',img:'3'},
-            {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList實作',img:'4'},
+            {url:'https://tangtang1b1b.github.io/todolist/todolistagain/index.html',name:'TodoList',descr:'TodoList 實作',img:'4'},
         ];
     
     return{
